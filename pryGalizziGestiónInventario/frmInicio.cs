@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using pryGalizziGestionInventario;
 
 namespace pryGalizziGestiónInventario
 {
@@ -15,6 +16,12 @@ namespace pryGalizziGestiónInventario
         public frmInicio()
         {
             InitializeComponent();
+        }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            clsConexionBD clsConexionBD = new clsConexionBD();
+            clsConexionBD.ConectarBD();
         }
     }
 }

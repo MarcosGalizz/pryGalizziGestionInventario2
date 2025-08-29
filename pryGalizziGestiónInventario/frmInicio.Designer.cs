@@ -249,6 +249,7 @@
             this.Controls.Add(this.tabFuncionalidades);
             this.Name = "frmInicio";
             this.Text = "Gestión de inventario";
+            this.Load += new System.EventHandler(this.frmInicio_Load);
             this.tabFuncionalidades.ResumeLayout(false);
             this.tbpProductos.ResumeLayout(false);
             this.tbpProductos.PerformLayout();
