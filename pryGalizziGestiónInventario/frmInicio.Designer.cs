@@ -65,6 +65,7 @@
             // 
             // tbpProductos
             // 
+            this.tbpProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(167)))), ((int)(((byte)(212)))));
             this.tbpProductos.Controls.Add(this.btnEliminar);
             this.tbpProductos.Controls.Add(this.btnModificar);
             this.tbpProductos.Controls.Add(this.btnAgregar);
@@ -81,13 +82,13 @@
             this.tbpProductos.Controls.Add(this.txtCodigo);
             this.tbpProductos.Controls.Add(this.lblCodigo);
             this.tbpProductos.Controls.Add(this.btnBuscar);
+            this.tbpProductos.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbpProductos.Location = new System.Drawing.Point(4, 22);
             this.tbpProductos.Name = "tbpProductos";
             this.tbpProductos.Padding = new System.Windows.Forms.Padding(3);
             this.tbpProductos.Size = new System.Drawing.Size(624, 360);
             this.tbpProductos.TabIndex = 0;
             this.tbpProductos.Text = "Productos";
-            this.tbpProductos.UseVisualStyleBackColor = true;
             // 
             // tbpBuscar
             // 
@@ -120,6 +121,7 @@
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
+            this.lblCodigo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblCodigo.Location = new System.Drawing.Point(41, 36);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(40, 13);
@@ -143,6 +145,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
+            this.lblNombre.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblNombre.Location = new System.Drawing.Point(41, 75);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(44, 13);
@@ -160,6 +163,7 @@
             // lblDescripcion
             // 
             this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblDescripcion.Location = new System.Drawing.Point(41, 112);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(63, 13);
@@ -176,6 +180,7 @@
             // lblPrecio
             // 
             this.lblPrecio.AutoSize = true;
+            this.lblPrecio.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblPrecio.Location = new System.Drawing.Point(41, 199);
             this.lblPrecio.Name = "lblPrecio";
             this.lblPrecio.Size = new System.Drawing.Size(37, 13);
@@ -192,6 +197,7 @@
             // lblStock
             // 
             this.lblStock.AutoSize = true;
+            this.lblStock.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblStock.Location = new System.Drawing.Point(41, 239);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(35, 13);
@@ -208,6 +214,7 @@
             // lblCategorias
             // 
             this.lblCategorias.AutoSize = true;
+            this.lblCategorias.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lblCategorias.Location = new System.Drawing.Point(41, 290);
             this.lblCategorias.Name = "lblCategorias";
             this.lblCategorias.Size = new System.Drawing.Size(59, 13);
