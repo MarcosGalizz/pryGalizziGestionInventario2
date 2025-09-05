@@ -19,15 +19,11 @@ namespace pryGalizziGestiónInventario
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void frmInicio_Load(object sender, EventArgs e)
-        {
-            clsConexionBD clsConexionBD = new clsConexionBD();
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
             clsConexionBD.ConectarBD();
             clsConexionBD.cargarNombres(cboNombres);
         }
+
 
         
 

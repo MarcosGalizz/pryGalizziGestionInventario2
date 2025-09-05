@@ -49,6 +49,10 @@ namespace pryGalizziGestionInventario
         }
         public void cargarNombres(ComboBox cboListaNombres)
         {
+            if (coneccionBaseDatos.State == System.Data.ConnectionState.Closed)
+            {
+                coneccionBaseDatos.Open();
+            }
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
             comandoBaseDatos.CommandText = "SELECT marca_nombre FROM Productos";
