@@ -16,5 +16,20 @@ namespace pryGalizziGestiónInventario
         {
             InitializeComponent();
         }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            clsConexionBD clsConexionBD = new clsConexionBD();
+            clsConexionBD.ConectarBD();
+            clsConexionBD.cargarNombres(cboNombres);
+        }
+
+        
+
     }
 }

@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.tabFuncionalidades = new System.Windows.Forms.TabControl();
             this.tbpProductos = new System.Windows.Forms.TabPage();
-            this.tbpBuscar = new System.Windows.Forms.TabPage();
-            this.tbpReporteInventario = new System.Windows.Forms.TabPage();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.lblPrecio = new System.Windows.Forms.Label();
+            this.cboCategorias = new System.Windows.Forms.ComboBox();
+            this.cboNombres = new System.Windows.Forms.ComboBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lblCategorias = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
-            this.txtCategorias = new System.Windows.Forms.TextBox();
-            this.lblCategorias = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.tbpBuscar = new System.Windows.Forms.TabPage();
+            this.tbpReporteInventario = new System.Windows.Forms.TabPage();
             this.tabFuncionalidades.SuspendLayout();
             this.tbpProductos.SuspendLayout();
             this.SuspendLayout();
@@ -65,10 +66,12 @@
             // 
             // tbpProductos
             // 
+            this.tbpProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(196)))), ((int)(((byte)(180)))));
+            this.tbpProductos.Controls.Add(this.cboCategorias);
+            this.tbpProductos.Controls.Add(this.cboNombres);
             this.tbpProductos.Controls.Add(this.btnEliminar);
             this.tbpProductos.Controls.Add(this.btnModificar);
             this.tbpProductos.Controls.Add(this.btnAgregar);
-            this.tbpProductos.Controls.Add(this.txtCategorias);
             this.tbpProductos.Controls.Add(this.lblCategorias);
             this.tbpProductos.Controls.Add(this.txtStock);
             this.tbpProductos.Controls.Add(this.lblStock);
@@ -76,7 +79,6 @@
             this.tbpProductos.Controls.Add(this.lblPrecio);
             this.tbpProductos.Controls.Add(this.txtDescripcion);
             this.tbpProductos.Controls.Add(this.lblDescripcion);
-            this.tbpProductos.Controls.Add(this.txtNombre);
             this.tbpProductos.Controls.Add(this.lblNombre);
             this.tbpProductos.Controls.Add(this.txtCodigo);
             this.tbpProductos.Controls.Add(this.lblCodigo);
@@ -87,67 +89,90 @@
             this.tbpProductos.Size = new System.Drawing.Size(624, 360);
             this.tbpProductos.TabIndex = 0;
             this.tbpProductos.Text = "Productos";
-            this.tbpProductos.UseVisualStyleBackColor = true;
             // 
-            // tbpBuscar
+            // cboCategorias
             // 
-            this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
-            this.tbpBuscar.Name = "tbpBuscar";
-            this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpBuscar.Size = new System.Drawing.Size(624, 360);
-            this.tbpBuscar.TabIndex = 1;
-            this.tbpBuscar.Text = "Buscar";
-            this.tbpBuscar.UseVisualStyleBackColor = true;
+            this.cboCategorias.FormattingEnabled = true;
+            this.cboCategorias.Location = new System.Drawing.Point(110, 287);
+            this.cboCategorias.Name = "cboCategorias";
+            this.cboCategorias.Size = new System.Drawing.Size(208, 21);
+            this.cboCategorias.TabIndex = 17;
             // 
-            // tbpReporteInventario
+            // cboNombres
             // 
-            this.tbpReporteInventario.Location = new System.Drawing.Point(4, 22);
-            this.tbpReporteInventario.Name = "tbpReporteInventario";
-            this.tbpReporteInventario.Size = new System.Drawing.Size(624, 360);
-            this.tbpReporteInventario.TabIndex = 2;
-            this.tbpReporteInventario.Text = "Reporte de inventario";
-            this.tbpReporteInventario.UseVisualStyleBackColor = true;
+            this.cboNombres.FormattingEnabled = true;
+            this.cboNombres.Location = new System.Drawing.Point(110, 70);
+            this.cboNombres.Name = "cboNombres";
+            this.cboNombres.Size = new System.Drawing.Size(208, 21);
+            this.cboNombres.TabIndex = 16;
             // 
-            // btnBuscar
+            // btnEliminar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(243, 31);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 0;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Location = new System.Drawing.Point(436, 236);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(134, 59);
+            this.btnEliminar.TabIndex = 15;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // lblCodigo
+            // btnModificar
             // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(41, 36);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
-            this.lblCodigo.TabIndex = 1;
-            this.lblCodigo.Text = "Código";
+            this.btnModificar.Location = new System.Drawing.Point(436, 131);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(134, 59);
+            this.btnModificar.TabIndex = 14;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // txtCodigo
+            // btnAgregar
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(110, 33);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigo.TabIndex = 2;
+            this.btnAgregar.Location = new System.Drawing.Point(436, 33);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(134, 59);
+            this.btnAgregar.TabIndex = 13;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
             // 
-            // txtNombre
+            // lblCategorias
             // 
-            this.txtNombre.Location = new System.Drawing.Point(110, 72);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(208, 20);
-            this.txtNombre.TabIndex = 4;
+            this.lblCategorias.AutoSize = true;
+            this.lblCategorias.Location = new System.Drawing.Point(41, 290);
+            this.lblCategorias.Name = "lblCategorias";
+            this.lblCategorias.Size = new System.Drawing.Size(59, 13);
+            this.lblCategorias.TabIndex = 11;
+            this.lblCategorias.Text = "Categorías";
             // 
-            // lblNombre
+            // txtStock
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(41, 75);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(44, 13);
-            this.lblNombre.TabIndex = 3;
-            this.lblNombre.Text = "Nombre";
+            this.txtStock.Location = new System.Drawing.Point(110, 236);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(100, 20);
+            this.txtStock.TabIndex = 10;
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Location = new System.Drawing.Point(41, 239);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(35, 13);
+            this.lblStock.TabIndex = 9;
+            this.lblStock.Text = "Stock";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(110, 196);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.TabIndex = 8;
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(41, 199);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.TabIndex = 7;
+            this.lblPrecio.Text = "Precio";
             // 
             // txtDescripcion
             // 
@@ -166,80 +191,58 @@
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripción";
             // 
-            // txtPrecio
+            // lblNombre
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(110, 196);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
-            this.txtPrecio.TabIndex = 8;
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(41, 75);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 3;
+            this.lblNombre.Text = "Nombre";
             // 
-            // lblPrecio
+            // txtCodigo
             // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(41, 199);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
-            this.lblPrecio.TabIndex = 7;
-            this.lblPrecio.Text = "Precio";
+            this.txtCodigo.Location = new System.Drawing.Point(110, 33);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.TabIndex = 2;
             // 
-            // txtStock
+            // lblCodigo
             // 
-            this.txtStock.Location = new System.Drawing.Point(110, 236);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 20);
-            this.txtStock.TabIndex = 10;
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(41, 36);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
+            this.lblCodigo.TabIndex = 1;
+            this.lblCodigo.Text = "Código";
             // 
-            // lblStock
+            // btnBuscar
             // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(41, 239);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(35, 13);
-            this.lblStock.TabIndex = 9;
-            this.lblStock.Text = "Stock";
+            this.btnBuscar.Location = new System.Drawing.Point(243, 31);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // txtCategorias
+            // tbpBuscar
             // 
-            this.txtCategorias.Location = new System.Drawing.Point(110, 287);
-            this.txtCategorias.Name = "txtCategorias";
-            this.txtCategorias.Size = new System.Drawing.Size(170, 20);
-            this.txtCategorias.TabIndex = 12;
+            this.tbpBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(11)))), ((int)(((byte)(64)))));
+            this.tbpBuscar.Location = new System.Drawing.Point(4, 22);
+            this.tbpBuscar.Name = "tbpBuscar";
+            this.tbpBuscar.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpBuscar.Size = new System.Drawing.Size(624, 360);
+            this.tbpBuscar.TabIndex = 1;
+            this.tbpBuscar.Text = "Buscar";
             // 
-            // lblCategorias
+            // tbpReporteInventario
             // 
-            this.lblCategorias.AutoSize = true;
-            this.lblCategorias.Location = new System.Drawing.Point(41, 290);
-            this.lblCategorias.Name = "lblCategorias";
-            this.lblCategorias.Size = new System.Drawing.Size(59, 13);
-            this.lblCategorias.TabIndex = 11;
-            this.lblCategorias.Text = "Categorías";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(436, 33);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(134, 59);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(436, 131);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(134, 59);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(436, 236);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(134, 59);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.tbpReporteInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(14)))), ((int)(((byte)(74)))));
+            this.tbpReporteInventario.Location = new System.Drawing.Point(4, 22);
+            this.tbpReporteInventario.Name = "tbpReporteInventario";
+            this.tbpReporteInventario.Size = new System.Drawing.Size(624, 360);
+            this.tbpReporteInventario.TabIndex = 2;
+            this.tbpReporteInventario.Text = "Reporte de inventario";
             // 
             // frmInicio
             // 
@@ -247,8 +250,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 450);
             this.Controls.Add(this.tabFuncionalidades);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInicio";
             this.Text = "Gestión de inventario";
+            this.Load += new System.EventHandler(this.frmInicio_Load);
             this.tabFuncionalidades.ResumeLayout(false);
             this.tbpProductos.ResumeLayout(false);
             this.tbpProductos.PerformLayout();
@@ -271,12 +276,12 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label lblDescripcion;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.TextBox txtCategorias;
         private System.Windows.Forms.Label lblCategorias;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.ComboBox cboNombres;
+        private System.Windows.Forms.ComboBox cboCategorias;
     }
 }
