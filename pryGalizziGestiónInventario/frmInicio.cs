@@ -18,20 +18,19 @@ namespace pryGalizziGestiónInventario
             InitializeComponent();
         }
 
-        private void frmInicio_Load(object sender, EventArgs e)
-        {
-            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
-            clsConexionBD.ConectarBD();
-            clsConexionBD.cargarNombres(cboNombres);
-            clsConexionBD.agregarProductos();
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
             clsConexionBD.ConectarBD();
-            clsConexionBD.agregarProductos(txtCodigo.Text, cboNombres.Text, txtDescripcion.Text, txtPrecio.Text, txtStock.Text, cboCategorias.Text);
+            clsConexionBD.agregarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), cboCategorias.Text);
         }
 
+        private void frmInicio_Load_1(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.ConectarBD();
+            clsConexionBD.cargarNombres(cboCategorias);
+        }
     }
 }

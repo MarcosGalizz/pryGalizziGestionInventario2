@@ -18,7 +18,7 @@ namespace pryGalizziGestionInventario
     {
         //cadena de conexion
         //sql - string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
-        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../dbGestionInventario1.accdb";
+        string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../dbGestionInventario2.accdb";
         //conector
         //SqlConnection coneccionBaseDatos;
         OleDbConnection coneccionBaseDatos;
@@ -52,7 +52,7 @@ namespace pryGalizziGestionInventario
             
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
-            comandoBaseDatos.CommandText = "SELECT marca_nombre FROM Productos";
+            comandoBaseDatos.CommandText = "SELECT categoría FROM Productos";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             while (lectorDataReader.Read())
             {
@@ -60,13 +60,14 @@ namespace pryGalizziGestionInventario
             }
         }
 
-        public void agregarProductos(int txtId, string nombre, string descripcion, decimal precio, int stock, string categoria)
+        public void agregarProductos(int Id, string nombre, string descripcion, decimal precio, int stock, string categoria)
         {
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
-            comandoBaseDatos.CommandText = $"INSERT INTO Productos " +
-                "VALUES (1, 2, 'Dell', 'pantalla rota')";
+            comandoBaseDatos.CommandText = "INSERT INTO Productos " +
+                $"VALUES ({Id}, {categoria}, '{nombre}', '{descripcion}')";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
+            MessageBox.Show("Producto agregado con éxito.");
         }
     }
 }
