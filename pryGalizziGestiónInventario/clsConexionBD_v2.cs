@@ -56,12 +56,17 @@ namespace pryGalizziGestionInventario
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             while (lectorDataReader.Read())
             {
-                cboListaNombres.Items.Add(lectorDataReader[0]);
+                if (!cboListaNombres.Items.Contains(Convert.ToInt32(lectorDataReader[0])))
+                {
+                    cboListaNombres.Items.Add(lectorDataReader[0]);
+                }
             }
         }
 
         public void agregarProductos(int Id, string nombre, string descripcion, decimal precio, int stock, int categoria)
         {
+            coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+            coneccionBaseDatos.Open();
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
             comandoBaseDatos.CommandText = "INSERT INTO Productos (codigo, nombre, descripcion, precio, stock, categoria) " +

@@ -34,8 +34,13 @@ namespace pryGalizziGestiónInventario
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
-            clsConexionBD.ConectarBD();
             clsConexionBD.agregarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            txtPrecio.Clear();
+            txtStock.Clear();
+            cboCategorias.Text = "";
         }
     }
 }

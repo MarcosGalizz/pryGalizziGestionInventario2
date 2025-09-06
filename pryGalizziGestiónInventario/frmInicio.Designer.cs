@@ -60,7 +60,7 @@
             this.tabFuncionalidades.Controls.Add(this.tbpReporteInventario);
             this.tabFuncionalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabFuncionalidades.Location = new System.Drawing.Point(34, 24);
-            this.tabFuncionalidades.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tabFuncionalidades.Margin = new System.Windows.Forms.Padding(5);
             this.tabFuncionalidades.Name = "tabFuncionalidades";
             this.tabFuncionalidades.SelectedIndex = 0;
             this.tabFuncionalidades.Size = new System.Drawing.Size(907, 556);
@@ -87,9 +87,9 @@
             this.tbpProductos.Controls.Add(this.btnBuscar);
             this.tbpProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpProductos.Location = new System.Drawing.Point(4, 29);
-            this.tbpProductos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbpProductos.Margin = new System.Windows.Forms.Padding(5);
             this.tbpProductos.Name = "tbpProductos";
-            this.tbpProductos.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbpProductos.Padding = new System.Windows.Forms.Padding(5);
             this.tbpProductos.Size = new System.Drawing.Size(899, 523);
             this.tbpProductos.TabIndex = 0;
             this.tbpProductos.Text = "Productos";
@@ -98,19 +98,21 @@
             // 
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(182, 111);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(344, 27);
             this.txtNombre.TabIndex = 18;
             // 
             // cboCategorias
             // 
+            this.cboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboCategorias.FormattingEnabled = true;
             this.cboCategorias.Location = new System.Drawing.Point(182, 442);
-            this.cboCategorias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCategorias.Margin = new System.Windows.Forms.Padding(4);
             this.cboCategorias.Name = "cboCategorias";
             this.cboCategorias.Size = new System.Drawing.Size(344, 28);
+            this.cboCategorias.Sorted = true;
             this.cboCategorias.TabIndex = 17;
             // 
             // btnEliminar
@@ -118,7 +120,7 @@
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(607, 319);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(224, 91);
             this.btnEliminar.TabIndex = 15;
@@ -130,7 +132,7 @@
             this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.Location = new System.Drawing.Point(607, 181);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(224, 91);
             this.btnModificar.TabIndex = 14;
@@ -142,7 +144,7 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(607, 44);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(224, 91);
             this.btnAgregar.TabIndex = 13;
@@ -166,7 +168,7 @@
             // 
             this.txtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStock.Location = new System.Drawing.Point(182, 383);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(5);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(164, 27);
             this.txtStock.TabIndex = 10;
@@ -187,7 +189,7 @@
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(182, 319);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(5);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(164, 27);
             this.txtPrecio.TabIndex = 8;
@@ -208,7 +210,7 @@
             // 
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(182, 169);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(5);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(344, 103);
@@ -242,7 +244,7 @@
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(182, 48);
-            this.txtCodigo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(5);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(164, 27);
             this.txtCodigo.TabIndex = 2;
@@ -264,7 +266,7 @@
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Location = new System.Drawing.Point(403, 44);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(125, 35);
             this.btnBuscar.TabIndex = 0;
@@ -275,9 +277,9 @@
             // 
             this.tbpBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(149)))), ((int)(((byte)(2)))));
             this.tbpBuscar.Location = new System.Drawing.Point(4, 29);
-            this.tbpBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbpBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.tbpBuscar.Name = "tbpBuscar";
-            this.tbpBuscar.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbpBuscar.Padding = new System.Windows.Forms.Padding(5);
             this.tbpBuscar.Size = new System.Drawing.Size(899, 523);
             this.tbpBuscar.TabIndex = 1;
             this.tbpBuscar.Text = "Buscar";
@@ -286,7 +288,7 @@
             // 
             this.tbpReporteInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(144)))), ((int)(((byte)(183)))));
             this.tbpReporteInventario.Location = new System.Drawing.Point(4, 29);
-            this.tbpReporteInventario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tbpReporteInventario.Margin = new System.Windows.Forms.Padding(5);
             this.tbpReporteInventario.Name = "tbpReporteInventario";
             this.tbpReporteInventario.Size = new System.Drawing.Size(899, 523);
             this.tbpReporteInventario.TabIndex = 2;
@@ -300,7 +302,7 @@
             this.Controls.Add(this.tabFuncionalidades);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "frmInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de inventario";
