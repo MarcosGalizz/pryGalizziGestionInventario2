@@ -52,7 +52,7 @@ namespace pryGalizziGestionInventario
             
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
-            comandoBaseDatos.CommandText = "SELECT categoría FROM Productos";
+            comandoBaseDatos.CommandText = "SELECT categoria FROM Productos";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             while (lectorDataReader.Read())
             {
@@ -60,12 +60,12 @@ namespace pryGalizziGestionInventario
             }
         }
 
-        public void agregarProductos(int Id, string nombre, string descripcion, decimal precio, int stock, string categoria)
+        public void agregarProductos(int Id, string nombre, string descripcion, decimal precio, int stock, int categoria)
         {
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
-            comandoBaseDatos.CommandText = "INSERT INTO Productos " +
-                $"VALUES ({Id}, {categoria}, '{nombre}', '{descripcion}')";
+            comandoBaseDatos.CommandText = "INSERT INTO Productos (codigo, nombre, descripcion, precio, stock, categoria) " +
+        $"VALUES ({Id}, '{nombre}', '{descripcion}', {precio}, {stock}, {categoria})";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             MessageBox.Show("Producto agregado con éxito.");
         }
