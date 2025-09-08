@@ -68,7 +68,7 @@ namespace pryGalizziGestionInventario
             coneccionBaseDatos.Open();
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
-            comandoBaseDatos.CommandText = "INSERT INTO Productos (codigo, nombre, descripcion, precio, stock, categoria) " +
+            comandoBaseDatos.CommandText = "INSERT INTO Productos (Código, Nombre, Descripción, Precio, Stock, Categoría) " +
         $"VALUES ({Id}, '{nombre}', '{descripcion}', {precio}, {stock}, {categoria})";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             MessageBox.Show("Producto agregado con éxito.");
