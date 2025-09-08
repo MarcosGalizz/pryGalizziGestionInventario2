@@ -42,5 +42,13 @@ namespace pryGalizziGestiónInventario
             txtStock.Clear();
             cboCategorias.Text = "";
         }
+
+        private void matBtnBuscar_Click(object sender, EventArgs e)
+        {
+            dgvBuscar.Rows.Clear();
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.buscarPorCategoria(matCboCategorias.Text, matTxtCategorias.Text, dgvBuscar);
+
+        }
     }
 }

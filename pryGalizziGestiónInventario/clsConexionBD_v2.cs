@@ -49,10 +49,9 @@ namespace pryGalizziGestionInventario
         }
         public void cargarNombres(ComboBox cboListaNombres)
         {
-            
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
-            comandoBaseDatos.CommandText = "SELECT categoria FROM Productos";
+            comandoBaseDatos.CommandText = "SELECT Categoría FROM Productos";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             while (lectorDataReader.Read())
             {
@@ -73,6 +72,32 @@ namespace pryGalizziGestionInventario
         $"VALUES ({Id}, '{nombre}', '{descripcion}', {precio}, {stock}, {categoria})";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             MessageBox.Show("Producto agregado con éxito.");
+        }
+
+        public void buscarPorCategoria(string categoria, string elemento, DataGridView dgvCategoria)
+        {
+            try
+            {
+                coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+                coneccionBaseDatos.Open();
+                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos.Connection = coneccionBaseDatos;
+                if (categoria != "Nombre")
+                {
+                    Convert.ToInt32(elemento);
+                }
+                comandoBaseDatos.CommandText = $"SELECT * FROM Productos WHERE {categoria}=@elemento";
+                comandoBaseDatos.Parameters.AddWithValue("@elemento", elemento);
+                lectorDataReader = comandoBaseDatos.ExecuteReader();
+                while (lectorDataReader.Read())
+                {
+                    dgvCategoria.Rows.Add(lectorDataReader[0], lectorDataReader[1], lectorDataReader[2], lectorDataReader[3], lectorDataReader[4], lectorDataReader[5]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la categoría o el valor ingresado. \n" + ex.ToString());
+            }
         }
     }
 }

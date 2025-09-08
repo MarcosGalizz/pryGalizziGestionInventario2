@@ -49,8 +49,21 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
             this.tbpReporteInventario = new System.Windows.Forms.TabPage();
+            this.matBtnBuscar = new MaterialSkin.Controls.MaterialButton();
+            this.matLblBuscar = new MaterialSkin.Controls.MaterialLabel();
+            this.matTxtCategorias = new MaterialSkin.Controls.MaterialTextBox();
+            this.matCboCategorias = new MaterialSkin.Controls.MaterialComboBox();
+            this.dgvBuscar = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabFuncionalidades.SuspendLayout();
             this.tbpProductos.SuspendLayout();
+            this.tbpBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFuncionalidades
@@ -276,6 +289,11 @@
             // tbpBuscar
             // 
             this.tbpBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(149)))), ((int)(((byte)(2)))));
+            this.tbpBuscar.Controls.Add(this.dgvBuscar);
+            this.tbpBuscar.Controls.Add(this.matCboCategorias);
+            this.tbpBuscar.Controls.Add(this.matTxtCategorias);
+            this.tbpBuscar.Controls.Add(this.matLblBuscar);
+            this.tbpBuscar.Controls.Add(this.matBtnBuscar);
             this.tbpBuscar.Location = new System.Drawing.Point(4, 29);
             this.tbpBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.tbpBuscar.Name = "tbpBuscar";
@@ -294,6 +312,143 @@
             this.tbpReporteInventario.TabIndex = 2;
             this.tbpReporteInventario.Text = "Reporte de inventario";
             // 
+            // matBtnBuscar
+            // 
+            this.matBtnBuscar.AutoSize = false;
+            this.matBtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.matBtnBuscar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.matBtnBuscar.Depth = 0;
+            this.matBtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matBtnBuscar.HighEmphasis = true;
+            this.matBtnBuscar.Icon = null;
+            this.matBtnBuscar.Location = new System.Drawing.Point(723, 31);
+            this.matBtnBuscar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnBuscar.Name = "matBtnBuscar";
+            this.matBtnBuscar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.matBtnBuscar.Size = new System.Drawing.Size(143, 49);
+            this.matBtnBuscar.TabIndex = 0;
+            this.matBtnBuscar.Text = "Buscar";
+            this.matBtnBuscar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnBuscar.UseAccentColor = false;
+            this.matBtnBuscar.UseVisualStyleBackColor = true;
+            this.matBtnBuscar.Click += new System.EventHandler(this.matBtnBuscar_Click);
+            // 
+            // matLblBuscar
+            // 
+            this.matLblBuscar.AutoSize = true;
+            this.matLblBuscar.Depth = 0;
+            this.matLblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matLblBuscar.Location = new System.Drawing.Point(28, 46);
+            this.matLblBuscar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matLblBuscar.Name = "matLblBuscar";
+            this.matLblBuscar.Size = new System.Drawing.Size(82, 19);
+            this.matLblBuscar.TabIndex = 1;
+            this.matLblBuscar.Text = "Buscar Por:";
+            // 
+            // matTxtCategorias
+            // 
+            this.matTxtCategorias.AnimateReadOnly = false;
+            this.matTxtCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtCategorias.Depth = 0;
+            this.matTxtCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matTxtCategorias.LeadingIcon = null;
+            this.matTxtCategorias.Location = new System.Drawing.Point(404, 32);
+            this.matTxtCategorias.MaxLength = 50;
+            this.matTxtCategorias.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtCategorias.Multiline = false;
+            this.matTxtCategorias.Name = "matTxtCategorias";
+            this.matTxtCategorias.Size = new System.Drawing.Size(290, 50);
+            this.matTxtCategorias.TabIndex = 2;
+            this.matTxtCategorias.Text = "";
+            this.matTxtCategorias.TrailingIcon = null;
+            // 
+            // matCboCategorias
+            // 
+            this.matCboCategorias.AutoResize = false;
+            this.matCboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.matCboCategorias.Depth = 0;
+            this.matCboCategorias.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.matCboCategorias.DropDownHeight = 174;
+            this.matCboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.matCboCategorias.DropDownWidth = 121;
+            this.matCboCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matCboCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.matCboCategorias.FormattingEnabled = true;
+            this.matCboCategorias.IntegralHeight = false;
+            this.matCboCategorias.ItemHeight = 43;
+            this.matCboCategorias.Items.AddRange(new object[] {
+            "Código",
+            "Nombre",
+            "Categoría"});
+            this.matCboCategorias.Location = new System.Drawing.Point(131, 31);
+            this.matCboCategorias.MaxDropDownItems = 4;
+            this.matCboCategorias.MouseState = MaterialSkin.MouseState.OUT;
+            this.matCboCategorias.Name = "matCboCategorias";
+            this.matCboCategorias.Size = new System.Drawing.Size(258, 49);
+            this.matCboCategorias.StartIndex = 0;
+            this.matCboCategorias.TabIndex = 3;
+            // 
+            // dgvBuscar
+            // 
+            this.dgvBuscar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+            this.dgvBuscar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBuscar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigo,
+            this.nombre,
+            this.descripcion,
+            this.precio,
+            this.stock,
+            this.categoria});
+            this.dgvBuscar.Location = new System.Drawing.Point(32, 109);
+            this.dgvBuscar.Name = "dgvBuscar";
+            this.dgvBuscar.RowHeadersWidth = 51;
+            this.dgvBuscar.RowTemplate.Height = 24;
+            this.dgvBuscar.Size = new System.Drawing.Size(842, 352);
+            this.dgvBuscar.TabIndex = 4;
+            // 
+            // codigo
+            // 
+            this.codigo.HeaderText = "Código";
+            this.codigo.MinimumWidth = 6;
+            this.codigo.Name = "codigo";
+            this.codigo.Width = 75;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.MinimumWidth = 6;
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 150;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripción";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.Width = 200;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.MinimumWidth = 6;
+            this.precio.Name = "precio";
+            this.precio.Width = 125;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.MinimumWidth = 6;
+            this.stock.Name = "stock";
+            this.stock.Width = 125;
+            // 
+            // categoria
+            // 
+            this.categoria.HeaderText = "Categoría";
+            this.categoria.MinimumWidth = 6;
+            this.categoria.Name = "categoria";
+            // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -310,6 +465,9 @@
             this.tabFuncionalidades.ResumeLayout(false);
             this.tbpProductos.ResumeLayout(false);
             this.tbpProductos.PerformLayout();
+            this.tbpBuscar.ResumeLayout(false);
+            this.tbpBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -336,5 +494,16 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.TextBox txtNombre;
+        private MaterialSkin.Controls.MaterialButton matBtnBuscar;
+        private MaterialSkin.Controls.MaterialComboBox matCboCategorias;
+        private MaterialSkin.Controls.MaterialTextBox matTxtCategorias;
+        private MaterialSkin.Controls.MaterialLabel matLblBuscar;
+        private System.Windows.Forms.DataGridView dgvBuscar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
     }
 }
