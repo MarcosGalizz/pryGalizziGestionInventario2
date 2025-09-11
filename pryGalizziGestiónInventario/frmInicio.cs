@@ -27,11 +27,6 @@ namespace pryGalizziGestiónInventario
             txtStock.Clear();
             cboCategorias.SelectedIndex = -1;
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void frmInicio_Load_1(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
