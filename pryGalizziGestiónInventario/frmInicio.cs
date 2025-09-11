@@ -18,7 +18,15 @@ namespace pryGalizziGestiónInventario
             InitializeComponent();
         }
 
-
+        private void resetearCampos()
+        {
+            txtCodigo.Clear();
+            txtNombre.Clear();
+            txtDescripcion.Clear();
+            txtPrecio.Clear();
+            txtStock.Clear();
+            cboCategorias.SelectedIndex = -1;
+        }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             
@@ -30,19 +38,30 @@ namespace pryGalizziGestiónInventario
             clsConexionBD.ConectarBD();
             clsConexionBD.cargarNombres(cboCategorias);
         }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.buscarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre, txtDescripcion, txtPrecio, txtStock, cboCategorias);
+        }
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
             clsConexionBD.agregarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
-            txtCodigo.Clear();
-            txtNombre.Clear();
-            txtDescripcion.Clear();
-            txtPrecio.Clear();
-            txtStock.Clear();
-            cboCategorias.Text = "";
+            resetearCampos();
         }
-
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.modificarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
+            resetearCampos();
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.eliminarProductos(Convert.ToInt32(txtCodigo.Text));
+            resetearCampos();
+        }
         private void matBtnBuscar_Click(object sender, EventArgs e)
         {
             dgvBuscar.Rows.Clear();

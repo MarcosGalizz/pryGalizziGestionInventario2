@@ -48,11 +48,6 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbpBuscar = new System.Windows.Forms.TabPage();
-            this.tbpReporteInventario = new System.Windows.Forms.TabPage();
-            this.matBtnBuscar = new MaterialSkin.Controls.MaterialButton();
-            this.matLblBuscar = new MaterialSkin.Controls.MaterialLabel();
-            this.matTxtCategorias = new MaterialSkin.Controls.MaterialTextBox();
-            this.matCboCategorias = new MaterialSkin.Controls.MaterialComboBox();
             this.dgvBuscar = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,6 +55,11 @@
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matCboCategorias = new MaterialSkin.Controls.MaterialComboBox();
+            this.matTxtCategorias = new MaterialSkin.Controls.MaterialTextBox();
+            this.matLblBuscar = new MaterialSkin.Controls.MaterialLabel();
+            this.matBtnBuscar = new MaterialSkin.Controls.MaterialButton();
+            this.tbpReporteInventario = new System.Windows.Forms.TabPage();
             this.tabFuncionalidades.SuspendLayout();
             this.tbpProductos.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
@@ -139,6 +139,7 @@
             this.btnEliminar.TabIndex = 15;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -151,6 +152,7 @@
             this.btnModificar.TabIndex = 14;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -285,6 +287,7 @@
             this.btnBuscar.TabIndex = 0;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tbpBuscar
             // 
@@ -302,94 +305,6 @@
             this.tbpBuscar.TabIndex = 1;
             this.tbpBuscar.Text = "Buscar";
             // 
-            // tbpReporteInventario
-            // 
-            this.tbpReporteInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(144)))), ((int)(((byte)(183)))));
-            this.tbpReporteInventario.Location = new System.Drawing.Point(4, 29);
-            this.tbpReporteInventario.Margin = new System.Windows.Forms.Padding(5);
-            this.tbpReporteInventario.Name = "tbpReporteInventario";
-            this.tbpReporteInventario.Size = new System.Drawing.Size(899, 523);
-            this.tbpReporteInventario.TabIndex = 2;
-            this.tbpReporteInventario.Text = "Reporte de inventario";
-            // 
-            // matBtnBuscar
-            // 
-            this.matBtnBuscar.AutoSize = false;
-            this.matBtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.matBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.matBtnBuscar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.matBtnBuscar.Depth = 0;
-            this.matBtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matBtnBuscar.HighEmphasis = true;
-            this.matBtnBuscar.Icon = null;
-            this.matBtnBuscar.Location = new System.Drawing.Point(723, 31);
-            this.matBtnBuscar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.matBtnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matBtnBuscar.Name = "matBtnBuscar";
-            this.matBtnBuscar.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.matBtnBuscar.Size = new System.Drawing.Size(143, 49);
-            this.matBtnBuscar.TabIndex = 0;
-            this.matBtnBuscar.Text = "Buscar";
-            this.matBtnBuscar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.matBtnBuscar.UseAccentColor = false;
-            this.matBtnBuscar.UseVisualStyleBackColor = true;
-            this.matBtnBuscar.Click += new System.EventHandler(this.matBtnBuscar_Click);
-            // 
-            // matLblBuscar
-            // 
-            this.matLblBuscar.AutoSize = true;
-            this.matLblBuscar.Depth = 0;
-            this.matLblBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matLblBuscar.Location = new System.Drawing.Point(28, 46);
-            this.matLblBuscar.MouseState = MaterialSkin.MouseState.HOVER;
-            this.matLblBuscar.Name = "matLblBuscar";
-            this.matLblBuscar.Size = new System.Drawing.Size(82, 19);
-            this.matLblBuscar.TabIndex = 1;
-            this.matLblBuscar.Text = "Buscar Por:";
-            // 
-            // matTxtCategorias
-            // 
-            this.matTxtCategorias.AnimateReadOnly = false;
-            this.matTxtCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.matTxtCategorias.Depth = 0;
-            this.matTxtCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matTxtCategorias.LeadingIcon = null;
-            this.matTxtCategorias.Location = new System.Drawing.Point(404, 32);
-            this.matTxtCategorias.MaxLength = 50;
-            this.matTxtCategorias.MouseState = MaterialSkin.MouseState.OUT;
-            this.matTxtCategorias.Multiline = false;
-            this.matTxtCategorias.Name = "matTxtCategorias";
-            this.matTxtCategorias.Size = new System.Drawing.Size(290, 50);
-            this.matTxtCategorias.TabIndex = 2;
-            this.matTxtCategorias.Text = "";
-            this.matTxtCategorias.TrailingIcon = null;
-            // 
-            // matCboCategorias
-            // 
-            this.matCboCategorias.AutoResize = false;
-            this.matCboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.matCboCategorias.Depth = 0;
-            this.matCboCategorias.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.matCboCategorias.DropDownHeight = 174;
-            this.matCboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.matCboCategorias.DropDownWidth = 121;
-            this.matCboCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matCboCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.matCboCategorias.FormattingEnabled = true;
-            this.matCboCategorias.IntegralHeight = false;
-            this.matCboCategorias.ItemHeight = 43;
-            this.matCboCategorias.Items.AddRange(new object[] {
-            "Código",
-            "Nombre",
-            "Categoría"});
-            this.matCboCategorias.Location = new System.Drawing.Point(131, 31);
-            this.matCboCategorias.MaxDropDownItems = 4;
-            this.matCboCategorias.MouseState = MaterialSkin.MouseState.OUT;
-            this.matCboCategorias.Name = "matCboCategorias";
-            this.matCboCategorias.Size = new System.Drawing.Size(258, 49);
-            this.matCboCategorias.StartIndex = 0;
-            this.matCboCategorias.TabIndex = 3;
-            // 
             // dgvBuscar
             // 
             this.dgvBuscar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
@@ -401,11 +316,11 @@
             this.precio,
             this.stock,
             this.categoria});
-            this.dgvBuscar.Location = new System.Drawing.Point(32, 109);
+            this.dgvBuscar.Location = new System.Drawing.Point(21, 101);
             this.dgvBuscar.Name = "dgvBuscar";
             this.dgvBuscar.RowHeadersWidth = 51;
             this.dgvBuscar.RowTemplate.Height = 24;
-            this.dgvBuscar.Size = new System.Drawing.Size(842, 352);
+            this.dgvBuscar.Size = new System.Drawing.Size(859, 352);
             this.dgvBuscar.TabIndex = 4;
             // 
             // codigo
@@ -448,6 +363,95 @@
             this.categoria.HeaderText = "Categoría";
             this.categoria.MinimumWidth = 6;
             this.categoria.Name = "categoria";
+            this.categoria.Width = 125;
+            // 
+            // matCboCategorias
+            // 
+            this.matCboCategorias.AutoResize = false;
+            this.matCboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.matCboCategorias.Depth = 0;
+            this.matCboCategorias.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.matCboCategorias.DropDownHeight = 174;
+            this.matCboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.matCboCategorias.DropDownWidth = 121;
+            this.matCboCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matCboCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.matCboCategorias.FormattingEnabled = true;
+            this.matCboCategorias.IntegralHeight = false;
+            this.matCboCategorias.ItemHeight = 43;
+            this.matCboCategorias.Items.AddRange(new object[] {
+            "Código",
+            "Nombre",
+            "Categoría"});
+            this.matCboCategorias.Location = new System.Drawing.Point(131, 31);
+            this.matCboCategorias.MaxDropDownItems = 4;
+            this.matCboCategorias.MouseState = MaterialSkin.MouseState.OUT;
+            this.matCboCategorias.Name = "matCboCategorias";
+            this.matCboCategorias.Size = new System.Drawing.Size(258, 49);
+            this.matCboCategorias.StartIndex = 0;
+            this.matCboCategorias.TabIndex = 3;
+            // 
+            // matTxtCategorias
+            // 
+            this.matTxtCategorias.AnimateReadOnly = false;
+            this.matTxtCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.matTxtCategorias.Depth = 0;
+            this.matTxtCategorias.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.matTxtCategorias.LeadingIcon = null;
+            this.matTxtCategorias.Location = new System.Drawing.Point(404, 32);
+            this.matTxtCategorias.MaxLength = 50;
+            this.matTxtCategorias.MouseState = MaterialSkin.MouseState.OUT;
+            this.matTxtCategorias.Multiline = false;
+            this.matTxtCategorias.Name = "matTxtCategorias";
+            this.matTxtCategorias.Size = new System.Drawing.Size(290, 50);
+            this.matTxtCategorias.TabIndex = 2;
+            this.matTxtCategorias.Text = "";
+            this.matTxtCategorias.TrailingIcon = null;
+            // 
+            // matLblBuscar
+            // 
+            this.matLblBuscar.AutoSize = true;
+            this.matLblBuscar.Depth = 0;
+            this.matLblBuscar.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.matLblBuscar.Location = new System.Drawing.Point(28, 46);
+            this.matLblBuscar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matLblBuscar.Name = "matLblBuscar";
+            this.matLblBuscar.Size = new System.Drawing.Size(82, 19);
+            this.matLblBuscar.TabIndex = 1;
+            this.matLblBuscar.Text = "Buscar Por:";
+            // 
+            // matBtnBuscar
+            // 
+            this.matBtnBuscar.AutoSize = false;
+            this.matBtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.matBtnBuscar.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.matBtnBuscar.Depth = 0;
+            this.matBtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matBtnBuscar.HighEmphasis = true;
+            this.matBtnBuscar.Icon = null;
+            this.matBtnBuscar.Location = new System.Drawing.Point(723, 31);
+            this.matBtnBuscar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnBuscar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnBuscar.Name = "matBtnBuscar";
+            this.matBtnBuscar.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.matBtnBuscar.Size = new System.Drawing.Size(143, 49);
+            this.matBtnBuscar.TabIndex = 0;
+            this.matBtnBuscar.Text = "Buscar";
+            this.matBtnBuscar.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnBuscar.UseAccentColor = false;
+            this.matBtnBuscar.UseVisualStyleBackColor = true;
+            this.matBtnBuscar.Click += new System.EventHandler(this.matBtnBuscar_Click);
+            // 
+            // tbpReporteInventario
+            // 
+            this.tbpReporteInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(144)))), ((int)(((byte)(183)))));
+            this.tbpReporteInventario.Location = new System.Drawing.Point(4, 29);
+            this.tbpReporteInventario.Margin = new System.Windows.Forms.Padding(5);
+            this.tbpReporteInventario.Name = "tbpReporteInventario";
+            this.tbpReporteInventario.Size = new System.Drawing.Size(899, 523);
+            this.tbpReporteInventario.TabIndex = 2;
+            this.tbpReporteInventario.Text = "Reporte de inventario";
             // 
             // frmInicio
             // 

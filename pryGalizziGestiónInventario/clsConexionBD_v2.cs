@@ -1,15 +1,14 @@
 ﻿using System;
-using System.IO;
+using System.Collections;
 using System.Collections.Generic;
+//para conexion de ACcess
+using System.Data.OleDb;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Sql;
-using System.Data.SqlClient;
-
-//para conexion de ACcess
-using System.Data.OleDb;
-
 using System.Windows.Forms;
 
 namespace pryGalizziGestionInventario
@@ -62,16 +61,80 @@ namespace pryGalizziGestionInventario
             }
         }
 
-        public void agregarProductos(int Id, string nombre, string descripcion, decimal precio, int stock, int categoria)
+        public void buscarProductos(int codigo, TextBox nombre, TextBox descripcion, TextBox precio, TextBox stock, ComboBox categoria)
+        {
+            try
+            {
+                coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+                coneccionBaseDatos.Open();
+                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos.Connection = coneccionBaseDatos;
+                comandoBaseDatos.CommandText = $"SELECT * FROM Productos WHERE Código={codigo}";
+                lectorDataReader = comandoBaseDatos.ExecuteReader();
+                lectorDataReader.Read();
+                nombre.Text = lectorDataReader[1].ToString();
+                descripcion.Text = lectorDataReader[2].ToString();
+                precio.Text = lectorDataReader[3].ToString();
+                stock.Text = lectorDataReader[4].ToString();
+                categoria.Text = lectorDataReader[5].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se encontró ningún producto con ese código. \n" + ex.ToString());
+            }
+        }
+        public void agregarProductos(int codigo, string nombre, string descripcion, decimal precio, int stock, int categoria)
         {
             coneccionBaseDatos = new OleDbConnection(cadenaConexion);
             coneccionBaseDatos.Open();
             comandoBaseDatos = new OleDbCommand();
             comandoBaseDatos.Connection = coneccionBaseDatos;
             comandoBaseDatos.CommandText = "INSERT INTO Productos (Código, Nombre, Descripción, Precio, Stock, Categoría) " +
-        $"VALUES ({Id}, '{nombre}', '{descripcion}', {precio}, {stock}, {categoria})";
+        $"VALUES ({codigo}, '{nombre}', '{descripcion}', {precio}, {stock}, {categoria})";
             lectorDataReader = comandoBaseDatos.ExecuteReader();
             MessageBox.Show("Producto agregado con éxito.");
+        }
+
+        public void modificarProductos(int codigo, string nombre, string descripcion, decimal precio, int stock, int categoria)
+        {
+            try
+            {
+                coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+                coneccionBaseDatos.Open();
+                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos.Connection = coneccionBaseDatos;
+                comandoBaseDatos.CommandText = $"UPDATE Productos SET Nombre = '{nombre}', " +
+                    $"Descripción = '{descripcion}', Precio = {precio}, Stock = {stock}, " +
+                    $"Categoría = {categoria} WHERE Código = {codigo}";
+                comandoBaseDatos.ExecuteNonQuery();
+                MessageBox.Show("Producto modificado con éxito.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar modificar el producto. \n" + ex.ToString());
+            }
+        }
+        public void eliminarProductos(int codigo)
+        {
+            try
+            {
+                DialogResult resultado = MessageBox.Show("¿Está seguro que desea eliminar este producto?"
+                    ,"Confirmación", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (resultado == DialogResult.Yes)
+                {
+                    coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+                    coneccionBaseDatos.Open();
+                    comandoBaseDatos = new OleDbCommand();
+                    comandoBaseDatos.Connection = coneccionBaseDatos;
+                    comandoBaseDatos.CommandText = $"DELETE FROM Productos WHERE Código = {codigo}";
+                    comandoBaseDatos.ExecuteNonQuery();
+                    MessageBox.Show("Producto eliminado con éxito.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al intentar eliminar el producto. \n" + ex.ToString());
+            }
         }
 
         public void buscarPorCategoria(string categoria, string elemento, DataGridView dgvCategoria)
