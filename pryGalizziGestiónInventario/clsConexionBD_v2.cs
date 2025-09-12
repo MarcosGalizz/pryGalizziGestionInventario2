@@ -95,7 +95,9 @@ namespace pryGalizziGestionInventario
             MessageBox.Show("Producto agregado con éxito.");
         }
 
-        public void modificarProductos(int codigo, string nombre, string descripcion, decimal precio, int stock, int categoria)
+        public void modificarProductos(int codigo, string nombre, 
+            string descripcion, decimal precio, int 
+            stock, int categoria)
         {
             try
             {
@@ -103,9 +105,8 @@ namespace pryGalizziGestionInventario
                 coneccionBaseDatos.Open();
                 comandoBaseDatos = new OleDbCommand();
                 comandoBaseDatos.Connection = coneccionBaseDatos;
-                comandoBaseDatos.CommandText = $"UPDATE Productos SET Nombre = '{nombre}', " +
-                    $"Descripción = '{descripcion}', Precio = {precio}, Stock = {stock}, " +
-                    $"Categoría = {categoria} WHERE Código = {codigo}";
+                comandoBaseDatos.CommandText = 
+                    $"UPDATE Productos SET Nombre = '{nombre}', Descripción = '{descripcion}', Precio = {precio}, Stock = {stock}, Categoría = {categoria} WHERE Código = {codigo}";
                 comandoBaseDatos.ExecuteNonQuery();
                 MessageBox.Show("Producto modificado con éxito.");
             }

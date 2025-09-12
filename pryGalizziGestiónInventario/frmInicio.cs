@@ -32,6 +32,10 @@ namespace pryGalizziGestiónInventario
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
             clsConexionBD.ConectarBD();
             clsConexionBD.cargarNombres(cboCategorias);
+
+            clsConexionBDv3 conexionSQL = new clsConexionBDv3();
+            conexionSQL.ConectarBD();
+
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -63,6 +67,13 @@ namespace pryGalizziGestiónInventario
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
             clsConexionBD.buscarPorCategoria(matCboCategorias.Text, matTxtCategorias.Text, dgvBuscar);
 
+        }
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.modificarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
+            resetearCampos();
         }
     }
 }

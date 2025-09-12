@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.tabFuncionalidades = new System.Windows.Forms.TabControl();
             this.tbpProductos = new System.Windows.Forms.TabPage();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.cboCategorias = new System.Windows.Forms.ComboBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.lblCategorias = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.lblStock = new System.Windows.Forms.Label();
@@ -60,10 +60,19 @@
             this.matLblBuscar = new MaterialSkin.Controls.MaterialLabel();
             this.matBtnBuscar = new MaterialSkin.Controls.MaterialButton();
             this.tbpReporteInventario = new System.Windows.Forms.TabPage();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panBtnsTabProductos = new System.Windows.Forms.Panel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.matBtnReporte = new MaterialSkin.Controls.MaterialButton();
             this.tabFuncionalidades.SuspendLayout();
             this.tbpProductos.SuspendLayout();
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).BeginInit();
+            this.tbpReporteInventario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panBtnsTabProductos.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabFuncionalidades
@@ -82,11 +91,9 @@
             // tbpProductos
             // 
             this.tbpProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(202)))), ((int)(((byte)(240)))));
+            this.tbpProductos.Controls.Add(this.panBtnsTabProductos);
             this.tbpProductos.Controls.Add(this.txtNombre);
             this.tbpProductos.Controls.Add(this.cboCategorias);
-            this.tbpProductos.Controls.Add(this.btnEliminar);
-            this.tbpProductos.Controls.Add(this.btnModificar);
-            this.tbpProductos.Controls.Add(this.btnAgregar);
             this.tbpProductos.Controls.Add(this.lblCategorias);
             this.tbpProductos.Controls.Add(this.txtStock);
             this.tbpProductos.Controls.Add(this.lblStock);
@@ -99,11 +106,11 @@
             this.tbpProductos.Controls.Add(this.lblCodigo);
             this.tbpProductos.Controls.Add(this.btnBuscar);
             this.tbpProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpProductos.Location = new System.Drawing.Point(4, 29);
+            this.tbpProductos.Location = new System.Drawing.Point(4, 26);
             this.tbpProductos.Margin = new System.Windows.Forms.Padding(5);
             this.tbpProductos.Name = "tbpProductos";
             this.tbpProductos.Padding = new System.Windows.Forms.Padding(5);
-            this.tbpProductos.Size = new System.Drawing.Size(899, 523);
+            this.tbpProductos.Size = new System.Drawing.Size(899, 526);
             this.tbpProductos.TabIndex = 0;
             this.tbpProductos.Text = "Productos";
             // 
@@ -113,7 +120,7 @@
             this.txtNombre.Location = new System.Drawing.Point(182, 111);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(344, 27);
+            this.txtNombre.Size = new System.Drawing.Size(344, 23);
             this.txtNombre.TabIndex = 18;
             // 
             // cboCategorias
@@ -124,48 +131,9 @@
             this.cboCategorias.Location = new System.Drawing.Point(182, 442);
             this.cboCategorias.Margin = new System.Windows.Forms.Padding(4);
             this.cboCategorias.Name = "cboCategorias";
-            this.cboCategorias.Size = new System.Drawing.Size(344, 28);
+            this.cboCategorias.Size = new System.Drawing.Size(164, 25);
             this.cboCategorias.Sorted = true;
             this.cboCategorias.TabIndex = 17;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(607, 319);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(224, 91);
-            this.btnEliminar.TabIndex = 15;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(607, 181);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(224, 91);
-            this.btnModificar.TabIndex = 14;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(607, 44);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(224, 91);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
             // lblCategorias
             // 
@@ -175,7 +143,7 @@
             this.lblCategorias.Location = new System.Drawing.Point(69, 442);
             this.lblCategorias.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblCategorias.Name = "lblCategorias";
-            this.lblCategorias.Size = new System.Drawing.Size(90, 20);
+            this.lblCategorias.Size = new System.Drawing.Size(76, 17);
             this.lblCategorias.TabIndex = 11;
             this.lblCategorias.Text = "Categorías";
             // 
@@ -185,7 +153,7 @@
             this.txtStock.Location = new System.Drawing.Point(182, 383);
             this.txtStock.Margin = new System.Windows.Forms.Padding(5);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(164, 27);
+            this.txtStock.Size = new System.Drawing.Size(164, 23);
             this.txtStock.TabIndex = 10;
             // 
             // lblStock
@@ -196,7 +164,7 @@
             this.lblStock.Location = new System.Drawing.Point(69, 383);
             this.lblStock.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(51, 20);
+            this.lblStock.Size = new System.Drawing.Size(43, 17);
             this.lblStock.TabIndex = 9;
             this.lblStock.Text = "Stock";
             // 
@@ -206,7 +174,7 @@
             this.txtPrecio.Location = new System.Drawing.Point(182, 319);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(5);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(164, 27);
+            this.txtPrecio.Size = new System.Drawing.Size(164, 23);
             this.txtPrecio.TabIndex = 8;
             // 
             // lblPrecio
@@ -217,7 +185,7 @@
             this.lblPrecio.Location = new System.Drawing.Point(69, 319);
             this.lblPrecio.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(57, 20);
+            this.lblPrecio.Size = new System.Drawing.Size(48, 17);
             this.lblPrecio.TabIndex = 7;
             this.lblPrecio.Text = "Precio";
             // 
@@ -239,7 +207,7 @@
             this.lblDescripcion.Location = new System.Drawing.Point(69, 172);
             this.lblDescripcion.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(99, 20);
+            this.lblDescripcion.Size = new System.Drawing.Size(82, 17);
             this.lblDescripcion.TabIndex = 5;
             this.lblDescripcion.Text = "Descripción";
             // 
@@ -251,7 +219,7 @@
             this.lblNombre.Location = new System.Drawing.Point(69, 115);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(68, 20);
+            this.lblNombre.Size = new System.Drawing.Size(58, 17);
             this.lblNombre.TabIndex = 3;
             this.lblNombre.Text = "Nombre";
             // 
@@ -261,7 +229,7 @@
             this.txtCodigo.Location = new System.Drawing.Point(182, 48);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(5);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(164, 27);
+            this.txtCodigo.Size = new System.Drawing.Size(209, 23);
             this.txtCodigo.TabIndex = 2;
             // 
             // lblCodigo
@@ -272,7 +240,7 @@
             this.lblCodigo.Location = new System.Drawing.Point(69, 55);
             this.lblCodigo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(61, 20);
+            this.lblCodigo.Size = new System.Drawing.Size(52, 17);
             this.lblCodigo.TabIndex = 1;
             this.lblCodigo.Text = "Código";
             // 
@@ -280,7 +248,7 @@
             // 
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(403, 44);
+            this.btnBuscar.Location = new System.Drawing.Point(401, 37);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(125, 35);
@@ -297,11 +265,11 @@
             this.tbpBuscar.Controls.Add(this.matTxtCategorias);
             this.tbpBuscar.Controls.Add(this.matLblBuscar);
             this.tbpBuscar.Controls.Add(this.matBtnBuscar);
-            this.tbpBuscar.Location = new System.Drawing.Point(4, 29);
+            this.tbpBuscar.Location = new System.Drawing.Point(4, 26);
             this.tbpBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(5);
-            this.tbpBuscar.Size = new System.Drawing.Size(899, 523);
+            this.tbpBuscar.Size = new System.Drawing.Size(899, 526);
             this.tbpBuscar.TabIndex = 1;
             this.tbpBuscar.Text = "Buscar";
             // 
@@ -446,16 +414,102 @@
             // tbpReporteInventario
             // 
             this.tbpReporteInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(144)))), ((int)(((byte)(183)))));
-            this.tbpReporteInventario.Location = new System.Drawing.Point(4, 29);
+            this.tbpReporteInventario.Controls.Add(this.matBtnReporte);
+            this.tbpReporteInventario.Controls.Add(this.chart1);
+            this.tbpReporteInventario.Location = new System.Drawing.Point(4, 26);
             this.tbpReporteInventario.Margin = new System.Windows.Forms.Padding(5);
             this.tbpReporteInventario.Name = "tbpReporteInventario";
-            this.tbpReporteInventario.Size = new System.Drawing.Size(899, 523);
+            this.tbpReporteInventario.Size = new System.Drawing.Size(899, 526);
             this.tbpReporteInventario.TabIndex = 2;
             this.tbpReporteInventario.Text = "Reporte de inventario";
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(38, 101);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(825, 390);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
+            // panBtnsTabProductos
+            // 
+            this.panBtnsTabProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(224)))), ((int)(((byte)(203)))));
+            this.panBtnsTabProductos.Controls.Add(this.btnEliminar);
+            this.panBtnsTabProductos.Controls.Add(this.btnModificar);
+            this.panBtnsTabProductos.Controls.Add(this.btnAgregar);
+            this.panBtnsTabProductos.Location = new System.Drawing.Point(563, 25);
+            this.panBtnsTabProductos.Name = "panBtnsTabProductos";
+            this.panBtnsTabProductos.Size = new System.Drawing.Size(266, 442);
+            this.panBtnsTabProductos.TabIndex = 19;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(21, 313);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(224, 91);
+            this.btnEliminar.TabIndex = 18;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(21, 175);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(224, 91);
+            this.btnModificar.TabIndex = 17;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Location = new System.Drawing.Point(21, 38);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(5);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(224, 91);
+            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            // 
+            // matBtnReporte
+            // 
+            this.matBtnReporte.AutoSize = false;
+            this.matBtnReporte.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.matBtnReporte.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.matBtnReporte.Depth = 0;
+            this.matBtnReporte.HighEmphasis = true;
+            this.matBtnReporte.Icon = null;
+            this.matBtnReporte.Location = new System.Drawing.Point(723, 31);
+            this.matBtnReporte.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.matBtnReporte.MouseState = MaterialSkin.MouseState.HOVER;
+            this.matBtnReporte.Name = "matBtnReporte";
+            this.matBtnReporte.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.matBtnReporte.Size = new System.Drawing.Size(143, 49);
+            this.matBtnReporte.TabIndex = 1;
+            this.matBtnReporte.Text = "Generar reporte";
+            this.matBtnReporte.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.matBtnReporte.UseAccentColor = false;
+            this.matBtnReporte.UseVisualStyleBackColor = true;
+            // 
             // frmInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(993, 615);
             this.Controls.Add(this.tabFuncionalidades);
@@ -472,6 +526,9 @@
             this.tbpBuscar.ResumeLayout(false);
             this.tbpBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
+            this.tbpReporteInventario.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panBtnsTabProductos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -493,9 +550,6 @@
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCategorias;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.TextBox txtNombre;
         private MaterialSkin.Controls.MaterialButton matBtnBuscar;
@@ -509,5 +563,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Panel panBtnsTabProductos;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnAgregar;
+        private MaterialSkin.Controls.MaterialButton matBtnReporte;
     }
 }
