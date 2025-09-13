@@ -110,9 +110,9 @@ namespace pryGalizziGestionInventario
                 comandoBaseDatos.ExecuteNonQuery();
                 MessageBox.Show("Producto modificado con éxito.");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al intentar modificar el producto. \n" + ex.ToString());
+                MessageBox.Show("Error al intentar modificar el producto.");
             }
         }
         public void eliminarProductos(int codigo)
@@ -132,9 +132,9 @@ namespace pryGalizziGestionInventario
                     MessageBox.Show("Producto eliminado con éxito.");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al intentar eliminar el producto. \n" + ex.ToString());
+                MessageBox.Show("Error al intentar eliminar el producto.");
             }
         }
 
@@ -158,9 +158,9 @@ namespace pryGalizziGestionInventario
                     dgvCategoria.Rows.Add(lectorDataReader[0], lectorDataReader[1], lectorDataReader[2], lectorDataReader[3], lectorDataReader[4], lectorDataReader[5]);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error en la categoría o el valor ingresado. \n" + ex.ToString());
+                MessageBox.Show("Error en la categoría o el valor ingresado.");
             }
         }
     }

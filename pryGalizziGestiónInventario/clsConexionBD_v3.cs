@@ -20,7 +20,7 @@ namespace pryGalizziGestionInventario
         //string cadenaConexion = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=../../dbGestionInventario2.accdb";
 
         //proveedor de sql
-        string cadenaConexion = "Server=localhost;Database=gestion;Trusted_Connection=True;";
+        string cadenaConexion = "Server=localhost;Database=Ventas2;Trusted_Connection=True;";
         //conector
         SqlConnection coneccionBaseDatos;
         //OleDbConnection coneccionBaseDatos;
