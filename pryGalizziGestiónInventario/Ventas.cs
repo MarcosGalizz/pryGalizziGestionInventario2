@@ -10,11 +10,28 @@ using System.Windows.Forms;
 
 namespace pryGalizziGestiónInventario
 {
-    public partial class Ventas : Form
+    public partial class frmVentas : Form
     {
-        public Ventas()
+        public frmVentas()
         {
             InitializeComponent();
+        }
+
+        private void frmVentas_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void matBtnDestInicio_Click(object sender, EventArgs e)
+        {
+            frmInicio frmInicio = new frmInicio();
+            frmInicio.Show();
+            this.Close();
         }
     }
 }

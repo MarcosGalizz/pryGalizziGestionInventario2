@@ -75,5 +75,12 @@ namespace pryGalizziGestiónInventario
             clsConexionBD.modificarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
             resetearCampos();
         }
+
+        private void matBtnDestVentas_Click(object sender, EventArgs e)
+        {
+            frmVentas frmVentas = new frmVentas();
+            frmVentas.Show();
+            this.Hide();
+        }
     }
 }
