@@ -79,8 +79,14 @@ namespace pryGalizziGestiónInventario
         private void matBtnDestVentas_Click(object sender, EventArgs e)
         {
             frmVentas frmVentas = new frmVentas();
-            frmVentas.Show();
-            this.Hide();
+            frmVentas.ShowDialog();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            clsConexionBD.eliminarProductos(Convert.ToInt32(txtCodigo.Text));
+            resetearCampos();
         }
     }
 }

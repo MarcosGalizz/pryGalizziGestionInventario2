@@ -29,8 +29,6 @@ namespace pryGalizziGestiónInventario
 
         private void matBtnDestInicio_Click(object sender, EventArgs e)
         {
-            frmInicio frmInicio = new frmInicio();
-            frmInicio.Show();
             this.Close();
         }
     }
