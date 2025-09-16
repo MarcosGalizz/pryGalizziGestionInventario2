@@ -88,5 +88,12 @@ namespace pryGalizziGestiónInventario
             clsConexionBD.eliminarProductos(Convert.ToInt32(txtCodigo.Text));
             resetearCampos();
         }
+
+        private void matBtnReporte_Click(object sender, EventArgs e)
+        {
+            chtStockProductos.Series.Clear();
+            clsConexionBD clsConexionBD = new clsConexionBD();
+            clsConexionBD.cargarChart(chtStockProductos);
+        }
     }
 }

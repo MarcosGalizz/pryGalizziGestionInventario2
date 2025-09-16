@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace pryGalizziGestionInventario
 {
@@ -162,6 +164,43 @@ namespace pryGalizziGestionInventario
             catch (Exception)
             {
                 MessageBox.Show("Error en la categoría o el valor ingresado.");
+            }
+        }
+
+        public void cargarChart(Chart chtStockProductos)
+        {
+            try
+            {
+                chtStockProductos.Series.Add("Inventario");
+                chtStockProductos.ChartAreas[0].AxisX.Title = "Productos";
+                chtStockProductos.ChartAreas[0].AxisY.Title = "Stock";
+                coneccionBaseDatos = new OleDbConnection(cadenaConexion);
+                coneccionBaseDatos.Open();
+                comandoBaseDatos = new OleDbCommand();
+                comandoBaseDatos.Connection = coneccionBaseDatos;
+                comandoBaseDatos.CommandText = "SELECT Nombre, Stock FROM Productos";
+                lectorDataReader = comandoBaseDatos.ExecuteReader();
+                while (lectorDataReader.Read())
+                {
+                    string producto = lectorDataReader[0].ToString();
+                    Int32 stock = Convert.ToInt32(lectorDataReader[1]);
+                    int index = chtStockProductos.Series[0].Points.AddY(stock);
+                    chtStockProductos.Series[0].Points[index].AxisLabel = producto;
+                    if (stock < 3)
+                    {
+                        chtStockProductos.Series[0].Points[index].Color = Color.Red;
+                    }
+                    else if (stock > 10)
+                    {
+                        chtStockProductos.Series[0].Points[index].Color = Color.Green;
+                    }
+
+                    
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No se puedieron obtener los datos solicitados.");
             }
         }
     }

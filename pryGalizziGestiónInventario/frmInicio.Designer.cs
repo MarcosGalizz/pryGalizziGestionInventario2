@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInicio));
             this.tabFuncionalidades = new System.Windows.Forms.TabControl();
             this.tbpProductos = new System.Windows.Forms.TabPage();
@@ -65,7 +63,7 @@
             this.matBtnBuscar = new MaterialSkin.Controls.MaterialButton();
             this.tbpReporteInventario = new System.Windows.Forms.TabPage();
             this.matBtnReporte = new MaterialSkin.Controls.MaterialButton();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chtStockProductos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.matBtnDestVentas = new MaterialSkin.Controls.MaterialButton();
             this.tabFuncionalidades.SuspendLayout();
             this.tbpProductos.SuspendLayout();
@@ -73,7 +71,7 @@
             this.tbpBuscar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).BeginInit();
             this.tbpReporteInventario.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chtStockProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // tabFuncionalidades
@@ -319,7 +317,7 @@
             this.tbpBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.tbpBuscar.Name = "tbpBuscar";
             this.tbpBuscar.Padding = new System.Windows.Forms.Padding(5);
-            this.tbpBuscar.Size = new System.Drawing.Size(899, 523);
+            this.tbpBuscar.Size = new System.Drawing.Size(899, 544);
             this.tbpBuscar.TabIndex = 1;
             this.tbpBuscar.Text = "Buscar";
             // 
@@ -465,7 +463,7 @@
             // 
             this.tbpReporteInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(144)))), ((int)(((byte)(183)))));
             this.tbpReporteInventario.Controls.Add(this.matBtnReporte);
-            this.tbpReporteInventario.Controls.Add(this.chart1);
+            this.tbpReporteInventario.Controls.Add(this.chtStockProductos);
             this.tbpReporteInventario.Location = new System.Drawing.Point(4, 29);
             this.tbpReporteInventario.Margin = new System.Windows.Forms.Padding(5);
             this.tbpReporteInventario.Name = "tbpReporteInventario";
@@ -493,22 +491,23 @@
             this.matBtnReporte.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.matBtnReporte.UseAccentColor = false;
             this.matBtnReporte.UseVisualStyleBackColor = true;
+            this.matBtnReporte.Click += new System.EventHandler(this.matBtnReporte_Click);
             // 
-            // chart1
+            // chtStockProductos
             // 
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Angle = -45;
+            chartArea1.AxisX.ScaleView.Size = 5D;
+            chartArea1.AxisX.Title = "Productos";
+            chartArea1.AxisY.Interval = 1D;
+            chartArea1.AxisY.Maximum = 20D;
+            chartArea1.AxisY.Title = "Stock";
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(38, 101);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(825, 390);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chtStockProductos.ChartAreas.Add(chartArea1);
+            this.chtStockProductos.Location = new System.Drawing.Point(38, 101);
+            this.chtStockProductos.Name = "chtStockProductos";
+            this.chtStockProductos.Size = new System.Drawing.Size(825, 390);
+            this.chtStockProductos.TabIndex = 0;
             // 
             // matBtnDestVentas
             // 
@@ -553,7 +552,7 @@
             this.tbpBuscar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBuscar)).EndInit();
             this.tbpReporteInventario.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chtStockProductos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,7 +588,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chtStockProductos;
         private System.Windows.Forms.Panel panBtnsTabProductos;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;

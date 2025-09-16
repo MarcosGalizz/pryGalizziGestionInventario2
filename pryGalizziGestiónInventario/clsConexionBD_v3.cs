@@ -31,7 +31,7 @@ namespace pryGalizziGestionInventario
         //OleDbConnection coneccionBaseDatos;
 
         //comando
-        SqlCommand comandoBaseDatos;
+        //SqlCommand comandoBaseDatos;
 //        OleDbCommand comandoBaseDatos;
   //      OleDbDataReader lectorDataReader;
         public string nombreBaseDeDatos;
