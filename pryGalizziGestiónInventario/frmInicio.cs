@@ -80,8 +80,16 @@ namespace pryGalizziGestiónInventario
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            try
+            {
             clsConexionBD.modificarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
             resetearCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Datos no Ingresados o Inválidos.");
+            }
         }
 
         private void matBtnDestVentas_Click(object sender, EventArgs e)
@@ -93,8 +101,16 @@ namespace pryGalizziGestiónInventario
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            try
+            {
             clsConexionBD.eliminarProductos(Convert.ToInt32(txtCodigo.Text));
             resetearCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Datos no Ingresados o Inválidos.");
+            }
         }
 
         private void matBtnReporte_Click(object sender, EventArgs e)
@@ -102,6 +118,21 @@ namespace pryGalizziGestiónInventario
             chtStockProductos.Series.Clear();
             clsConexionBD clsConexionBD = new clsConexionBD();
             clsConexionBD.cargarChart(chtStockProductos);
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
+            try
+            {
+                clsConexionBD.agregarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcion.Text, Convert.ToDecimal(txtPrecio.Text), Convert.ToInt32(txtStock.Text), Convert.ToInt32(cboCategorias.Text));
+                resetearCampos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Datos no Ingresados o Inválidos.");
+            }
         }
     }
 }
