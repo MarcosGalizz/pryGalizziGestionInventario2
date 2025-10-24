@@ -34,13 +34,21 @@ namespace pryGalizziGestiónInventario
             clsConexionBD.cargarNombres(cboCategorias);
 
             clsConexionBDv3 conexionSQL = new clsConexionBDv3();
-            conexionSQL.ConectarBD();
+            //conexionSQL.ConectarBD();
 
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             pryGalizziGestionInventario.clsConexionBD clsConexionBD = new pryGalizziGestionInventario.clsConexionBD();
-            clsConexionBD.buscarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre, txtDescripcion, txtPrecio, txtStock, cboCategorias);
+            try
+            {
+                clsConexionBD.buscarProductos(Convert.ToInt32(txtCodigo.Text), txtNombre, txtDescripcion, txtPrecio, txtStock, cboCategorias);
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Datos no ingresados o inválidos.");
+            }
         }
 
         private void btnAgregar_Click_1(object sender, EventArgs e)
