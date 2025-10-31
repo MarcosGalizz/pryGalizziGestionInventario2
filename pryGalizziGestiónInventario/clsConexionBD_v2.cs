@@ -200,7 +200,7 @@ namespace pryGalizziGestionInventario
             }
             catch
             {
-                MessageBox.Show("No se puedieron obtener los datos solicitados.");
+                MessageBox.Show("No se pudieron obtener los datos solicitados.");
             }
         }
     }
